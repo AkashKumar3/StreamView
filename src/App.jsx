@@ -6,11 +6,14 @@ import Sidebar from "./components/Sidebar";
 import Home from "./Pages/Home";
 import SignIn from "./Pages/SignIn";
 import SignUp from "./Pages/SignUp";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
+    <Provider store={appStore}>
     <Router>
       <Routes>
         <Route path="/signin" element={<SignIn />} />
@@ -35,6 +38,7 @@ function App() {
         />
       </Routes>
     </Router>
+    </Provider>
   );
 }
 

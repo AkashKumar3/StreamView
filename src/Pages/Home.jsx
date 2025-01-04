@@ -1,51 +1,109 @@
-import { useState } from 'react';
-import VideoCard from '../components/VideoCard';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import VideoCard from "../components/VideoCard";
+import { useSelector } from "react-redux";
 
-const SAMPLE_VIDEOS = [
-  {
-    videoId: "video01",
-    title: "Learn React in 30 Minutes",
-    thumbnailUrl:  "https://i.pinimg.com/originals/a1/56/ab/a156ab3553cf8b162a0f3393a4c26632.jpg",
-    channelName: "Code with John",
-    views: 15200,
-    uploadDate: "3 days ago"
-  },
-];
 
-const CATEGORIES = [
-  "All", "Music", "Gaming", "Live", "React", "Programming", 
-  "Comedy", "Education", "Sports", "Travel"
-];
+const Home = () => {
+  const [videos, setvideos] = useState([]);
+  const [filteredData, setFilteredData] = useState(videos);
+  const [loading, setLoading] = useState(false);
 
-export default function Home() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const categories = [
+    "All",
+    "Songs",
+    "Movies",
+    "Education",
+    "Infotainment",
+    "Food",
+    "Fashion",
+    "Vlog",
+    "Finance",
+    "Gaming",
+  ];
+
+  const userChannel = useSelector(
+    (store) => store.userChannel.userChannelDetails
+  );
+
+  useEffect(() => {
+    // fetch videos
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const { data } = await axios.get(
+          "http://localhost:8000/api/video/"
+        );
+        if (data) {
+          setvideos(data.videos);
+          setFilteredData(data.videos);
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
+  // filtering video based on category
+  const handleFilter = (filteredItem) => {
+    if (filteredItem == "All") {
+      setFilteredData(videos);
+    } else {
+      setFilteredData(
+        videos.filter(
+          (item) => item.category.toLowerCase() === filteredItem.toLowerCase()
+        )
+      );
+    }
+  };
 
   return (
-    <div className="pt-14">
-      {/* Categories Section */}
-      <div className="bg-white border-b">
-        <div className="flex gap-3 px-4 py-3 overflow-x-auto">
-          {CATEGORIES.map(category => (
-            <div
-              key={category}
-              onClick={() => setSelectedCategory(category)} // Set the selected category without linking
-              className={`px-4 py-1 rounded-full whitespace-nowrap cursor-pointer ${
-                selectedCategory === category
-                  ? "bg-black text-white"
-                  : "bg-gray-100 hover:bg-gray-200"
-              }`}
-            >
-              {category}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4 mt-4">
-        {SAMPLE_VIDEOS.map(video => (
-          <VideoCard key={video.videoId} video={video} />
+    <>
+      {/*  Category  */}
+      <div className="category flex gap-4 py-2 w-full overflow-x-scroll scrollbar-hide ml-2 sm:ml-10  ">
+        {categories?.map((item) => (
+          <span
+            onClick={() => handleFilter(item)}
+            key={item}
+            className="shadow-md bg-slate-100 hover:bg-slate-300 cursor-pointer px-5 py-1 rounded-md  "
+          >
+            {item}
+          </span>
         ))}
       </div>
-    </div>
+
+      <div className="flex flex-wrap gap-8 my-2 ml-4 sm:ml-10 ">
+        {/* video card  */}
+
+        {loading ? (
+          <div>
+            <h2>...Loading</h2>
+            </div>
+        ) : (
+          <>
+            {filteredData && filteredData.length >= 1 ? (
+              filteredData.map((item) => (
+                <VideoCard
+                  key={item._id}
+                  videoId={item._id}
+                  title={item.title}
+                  channelId={item.channelId}
+                  thumbnailUrl={item.thumbnailUrl}
+                  views={item.views}
+                  createdAt={item.createdAt}
+                />
+              ))
+            ) : (
+              <h2>no videos to display</h2>
+            )}
+          </>
+        )}
+      </div>
+    </>
   );
-}
+};
+
+export default Home;

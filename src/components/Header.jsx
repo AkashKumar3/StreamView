@@ -1,55 +1,185 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { HiMenu, HiSearch } from 'react-icons/hi';
-import { BsYoutube } from 'react-icons/bs';
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { HiMenu, HiSearch } from "react-icons/hi";
+import { BsYoutube } from "react-icons/bs";
 
-export default function Header({ toggleSidebar }) {
-  const [searchQuery, setSearchQuery] = useState('');
-  const isAuthenticated = false; // Will be managed by auth context later
+import { RiVideoUploadLine } from "react-icons/ri";
+import { FaRegBell } from "react-icons/fa6";
+import { FaUserCircle } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { clearToken, clearUserState } from "../utils/userSlice";
+import { toast } from "react-toastify";
+import { setUserChannelDetails } from "../utils/userChannelSlice";
+import axios from "axios";
+
+export default function ({ toggleSidebar }) {
+  const [toggle, setToggle] = useState(false);
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+  const user = useSelector((store) => store.user.userDetails);
+  const userChannel = useSelector(
+    (store) => store.userChannel.userChannelDetails
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (user && user?.channel?.length >= 1) {
+      const fetchUserChannel = async () => {
+        try {
+          let { data } = await axios.get(
+            `http://localhost:8000/api/channel/${user?.channel[0]}`
+          );
+          dispatch(setUserChannelDetails(data.channel));
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      fetchUserChannel();
+    }
+  }, [user]);
+
+  // function to logout
+  const handleLogout = () => {
+    dispatch(clearToken());
+    dispatch(clearUserState());
+    toast.success("Logout success");
+    setToggle(false);
+  };
+
+
+  // function to search using searchbar
+  const handleSearchSubmit = () => {
+    if (search.length <= 0) {
+      return toast.error("enter something to search");
+    }
+    navigate(`/search/${search}`);
+    setSearch("");
+  };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white z-50 flex items-center justify-between px-4 h-14 shadow-sm">
-      <div className="flex items-center gap-4">
-        <button onClick={toggleSidebar} className="p-2 hover:bg-gray-100 rounded-full">
-          <HiMenu className="w-6 h-6" />
-        </button>
-        <Link to="/" className="flex items-center gap-1">
+    <div className="header flex justify-between items-center py-3 px-2 sm:px-6  shadow-sm">
+      <div className="logo flex items-center gap-1 sm:gap-2">
+        <HiMenu
+          className=" sm:block"
+          size={20}
+          onClick={toggleSidebar}
+        />
+        <Link to="/" className="flex items-center gap-1 ml-4">
           <BsYoutube className="w-6 h-6 text-red-600" />
           <span className="text-base font-semibold sm:text-xl">YouTube</span>
         </Link>
       </div>
-
-      <div className="flex-1 max-w-md sm:max-w-2xl mx-4">
-        <div className="flex">
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-l-full focus:outline-none focus:border-blue-500"
-          />
-          <button className="px-0 py-0 sm:px-6 ms:py-3 bg-gray-100 border border-l-0 border-gray-300 rounded-r-full hover:bg-gray-200">
-            <HiSearch className="w-5 h-5" />
-          </button>
-        </div>
+      <div className="search w-[80%] xs:w-[65%]  sm:w-[50%] md:w-[38%] xxl:w-[36%]   flex items-center gap-2 relative ">
+        <input
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          type="text"
+          placeholder="Search"
+          className="border px-4 pr-16 py-[2px] xs:py-1 outline-none  border-gray-200 rounded-full w-full sm:w-[34rem] xxl:w-full"
+        />
+        <button
+          type="submit"
+          onClick={handleSearchSubmit}
+          className="search cursor-pointer bg-gray-200 rounded-r-full h-full flex items-center justify-center w-14 absolute right-0 "
+        >
+          <HiSearch className=" " size={20} />
+        </button>
       </div>
+      <div className="userOp flex items-center gap-4 relative">
+        {user && Object.keys(user).length > 0 ? (
+          <>
+            {userChannel && Object.keys(userChannel).length >= 1 ? (
+              <>
+                <Link className="hidden sm:block" to={"/uploadVideo"}>
+                  <RiVideoUploadLine size={20} />
+                </Link>
+              </>
+            ) : (
+              ""
+            )}
+            <FaRegBell className="hidden sm:block" size={20} />
+            {user && Object.keys(user).length >= 1 ? (
+              <img
+                src={user?.avatar}
+                onClick={() => setToggle(!toggle)}
+                onError={(e) =>
+                  (e.target.src =
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrAe6Juu6QDvA4po0DCjhamerR5HnNsL8GWw&s")
+                }
+                className="w-8 h-8 cursor-pointer rounded-full border"
+                alt="userAvatar"
+              />
+            ) : (
+              <FaUserCircle
+                onClick={() => setToggle(!toggle)}
+                className="cursor-pointer"
+                size={20}
+              />
+            )}
+            {toggle ? (
+              <ul className="dropdown absolute right-0 top-12 bg-white border border-gray-200 rounded-lg shadow-lg w-48 z-10">
+                <Link
+                  onClick={() => setToggle(false)}
+                  to={"/"}
+                  className="py-2 block w-full px-4 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer rounded"
+                >
+                  Home
+                </Link>
 
-      <div>
-        {isAuthenticated ? (
-          <img
-            src="https://via.placeholder.com/32"
-            alt="User"
-            className="w-8 h-8 rounded-full cursor-pointer"
-          />
+                <Link
+                  to={"/userAccount"}
+                  onClick={() => setToggle(false)}
+                  className="py-2 px-4 text-sm text-gray-700 w-full block hover:bg-gray-100 cursor-pointer rounded"
+                >
+                  My Account
+                </Link>
+                {userChannel && Object.keys(userChannel).length >= 1 ? (
+                  <>
+                    <Link
+                      onClick={() => setToggle(false)}
+                      to={`/channel/${userChannel._id}`}
+                      className="py-2 block w-full px-4 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer rounded"
+                    >
+                      My Channel
+                    </Link>
+                    <Link
+                      to={"/uploadVideo"}
+                      onClick={() => setToggle(false)}
+                      className="py-2 px-4 text-sm text-gray-700 w-full block hover:bg-gray-100 cursor-pointer rounded"
+                    >
+                      Upload Video
+                    </Link>
+                  </>
+                ) : (
+                  <Link
+                    onClick={() => setToggle(false)}
+                    to={"/createChannel"}
+                    className="py-2 block w-full px-4 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer rounded"
+                  >
+                    Create Channel
+                  </Link>
+                )}
+
+                <li
+                  onClick={handleLogout}
+                  className="py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer rounded"
+                >
+                  Logout
+                </li>
+              </ul>
+            ) : (
+              ""
+            )}
+          </>
         ) : (
           <Link
             to="/signin"
-            className="flex items-center gap-2 px-4 py-2 text-blue-600 border border-blue-600 rounded-full hover:bg-blue-50"
+            className="border p-1 px-4 rounded-full flex items-center gap-2"
           >
-            Sign In
+            <FaUserCircle size={20} /> SignIn
           </Link>
         )}
       </div>
-    </header>
+    </div>
   );
 }
