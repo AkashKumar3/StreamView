@@ -6,7 +6,7 @@ This is a full-stack YouTube Clone application built with **React** for the fron
 
 ## Features
 
-### Frontend (React + Chakra UI):
+### Frontend React :
 - Responsive user interface built using **React**.
 - Routing with **React Router Dom**.
 - State management using **Redux Toolkit**.
