@@ -1,4 +1,6 @@
 # Logs
+youtube_clone_backend-main/.env
+
 logs
 *.log
 npm-debug.log*
