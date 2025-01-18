@@ -55,7 +55,7 @@ const UpdateChannel = () => {
 
     try {
       const result = await axios.put(
-        `http://localhost:5000/api/channel/updateChannel/${params.id}/${user._id}`,
+        `https://youtube-clone-backend-ghq6.onrender.com/api/channel/updateChannel/${params.id}/${user._id}`,
         formData,
         {
           headers: {
