@@ -54,7 +54,7 @@ const CreateChannel = () => {
   const fetchCurrentUser = async () => {
     try {
       let { data } = await axios.get(
-        `http://localhost:5000/api/users/${user?._id}`
+        `https://youtube-clone-backend-ghq6.onrender.com/api/users/${user?._id}`
       );
       if (data) {
         dispatch(setUserState(data?.user));
