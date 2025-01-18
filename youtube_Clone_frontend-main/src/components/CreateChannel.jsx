@@ -33,7 +33,7 @@ const CreateChannel = () => {
     let channelData = { ...formData, owner: user?._id };
     try {
       let result = await axios.post(
-        "http://localhost:5000/api/channel/createChannel",
+        "https://youtube-clone-backend-ghq6.onrender.com/api/channel/createChannel",
         channelData,
         {
           headers: {
