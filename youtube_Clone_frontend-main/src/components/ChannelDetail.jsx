@@ -17,7 +17,7 @@ const ChannelDetail = () => {
     const fetchChannelData = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:5000/api/channel/${params.id}`
+          `https://youtube-clone-backend-ghq6.onrender.com/api/channel/${params.id}`
         );
         if (data) {
           setChannelData(data.channel);
@@ -45,7 +45,7 @@ const ChannelDetail = () => {
     setloading(true);
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/video/channelVideos/${channelId}`
+        `https://youtube-clone-backend-ghq6.onrender.com/api/video/channelVideos/${channelId}`
       );
 
       if (data) {
