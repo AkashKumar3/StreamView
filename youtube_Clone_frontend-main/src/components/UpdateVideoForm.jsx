@@ -24,7 +24,7 @@ const UpdateVideoForm = () => {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(
-        `http://localhost:5000/api/video/${params.id}`
+        `https://youtube-clone-backend-ghq6.onrender.com/api/video/${params.id}`
       );
 
       if (data.video.uploader !== user._id) {
