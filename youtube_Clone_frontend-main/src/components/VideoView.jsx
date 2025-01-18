@@ -28,7 +28,7 @@ const VideoView = () => {
     try {
       let uId = user._id;
       const { data } = await axios.put(
-        `http://localhost:5000/api/video/likeVideo/${video}`,
+        `https://youtube-clone-backend-ghq6.onrender.com/api/video/likeVideo/${video}`,
         { uId },
         {
           headers: {
@@ -57,7 +57,7 @@ const VideoView = () => {
     try {
       let uId = user._id;
       const { data } = await axios.put(
-        `http://localhost:5000/api/video/disLikeVideo/${video}`,
+        `https://youtube-clone-backend-ghq6.onrender.com/api/video/disLikeVideo/${video}`,
         { uId },
         {
           headers: {
@@ -82,7 +82,7 @@ const VideoView = () => {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(
-        `http://localhost:5000/api/video/${video}`
+        `https://youtube-clone-backend-ghq6.onrender.com/api/video/${video}`
       );
       if (data) {
         setVideoData(data.video);
@@ -105,7 +105,7 @@ const VideoView = () => {
   const fetchChannelVideos = async (id) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/video/channelVideos/${id}`
+        `https://youtube-clone-backend-ghq6.onrender.com/api/video/channelVideos/${id}`
       );
       if (data) {
         setChannelVideos(data.videos);
@@ -117,7 +117,7 @@ const VideoView = () => {
 
   const fetchChannelData = async (cId) => {
     const { data } = await axios.get(
-      `http://localhost:5000/api/channel/${cId}`
+      `https://youtube-clone-backend-ghq6.onrender.com/api/channel/${cId}`
     );
     if (data) {
       setChannelData(data.channel);
@@ -126,7 +126,7 @@ const VideoView = () => {
 
   const fetchVideoComments = async () => {
     const { data } = await axios.get(
-      `http://localhost:5000/api/comment/videoComments/${video}`
+      `https://youtube-clone-backend-ghq6.onrender.com/api/comment/videoComments/${video}`
     );
     if (data) {
       setComments(data.comments);
@@ -151,7 +151,7 @@ const VideoView = () => {
     };
     try {
       const data = await axios.post(
-        "http://localhost:5000/api/comment/addComment",
+        "https://youtube-clone-backend-ghq6.onrender.com/api/comment/addComment",
         commentData
       );
       if (data) {
@@ -171,7 +171,7 @@ const VideoView = () => {
     }
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/api/channel/subscribeChannel/${channelData?._id}/${user?._id}`,
+        `https://youtube-clone-backend-ghq6.onrender.com/api/channel/subscribeChannel/${channelData?._id}/${user?._id}`,
         {},
         {
           headers: {
