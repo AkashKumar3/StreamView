@@ -26,7 +26,7 @@ export default function ({ sideBarToggle, setSideBarToggle }) {
       const fetchUserChannel = async () => {
         try {
           let { data } = await axios.get(
-            `http://localhost:5000/api/channel/${user?.channel[0]}`
+            `https://youtube-clone-backend-ghq6.onrender.com/api/channel/${user?.channel[0]}`
           );
           dispatch(setUserChannelDetails(data.channel));
         } catch (error) {
