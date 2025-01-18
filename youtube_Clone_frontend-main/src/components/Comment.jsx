@@ -29,7 +29,7 @@ const Comment = ({
     const fetchOwner = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:5000/api/users/${owner}`
+          `https://youtube-clone-backend-ghq6.onrender.com/api/users/${owner}`
         );
 
         if (data) {
@@ -47,7 +47,7 @@ const Comment = ({
   const handleDelete = async () => {
     try {
       const result = await axios.delete(
-        `http://localhost:5000/api/comment/deleteComment/${id}/${video}/${user?._id}`
+        `https://youtube-clone-backend-ghq6.onrender.com/api/comment/deleteComment/${id}/${video}/${user?._id}`
       );
       if (result) {
         toast.success("Comment deleted successfully");
@@ -64,7 +64,7 @@ const Comment = ({
   const handleUpdate = async () => {
     try {
       const result = await axios.put(
-        `http://localhost:5000/api/comment/updateComment/${id}/${video}/${user?._id}`,
+        `https://youtube-clone-backend-ghq6.onrender.com/api/comment/updateComment/${id}/${video}/${user?._id}`,
         {
           description: editedDescription,
         }
