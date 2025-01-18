@@ -43,7 +43,7 @@ const UploadVideo = () => {
 
     try {
       let result = await axios.post(
-        "http://localhost:5000/api/video/addVideo",
+        "https://youtube-clone-backend-ghq6.onrender.com/api/video/addVideo",
         videoData,
         {
           headers: {
