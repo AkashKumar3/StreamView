@@ -60,8 +60,7 @@ const Login = () => {
       <div className="w-full max-w-lg bg-white p-8 rounded-lg shadow-xl">
         {/* YouTube Logo and Title */}
         <div className="flex items-center justify-center space-x-3 mb-8">
-          <SiYoutube size={40} className="text-red-600" />
-          <h2 className="text-3xl font-semibold text-gray-800">YouTube</h2>
+          <img src="/images/stream_view_logo.png" alt="logo" />
         </div>
 
         <form onSubmit={handleFormSubmit} className="space-y-6">
@@ -74,7 +73,7 @@ const Login = () => {
               Email
             </label>
             <input
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-800"
               id="email"
               type="email"
               required
@@ -93,7 +92,7 @@ const Login = () => {
               Password
             </label>
             <input
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-800"
               id="password"
               type="password"
               value={formData.password}
@@ -107,7 +106,7 @@ const Login = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-red-600 text-white py-3 rounded-md hover:bg-red-700 transition-all"
+            className="w-full bg-blue-800 text-white py-3 rounded-md hover:bg-blue-900 transition-all"
           >
             Login
           </button>
@@ -115,7 +114,7 @@ const Login = () => {
           {/* Sign Up Link */}
           <div className="text-center text-sm text-gray-600 mt-4">
             Don’t have an account?{" "}
-            <Link to="/signUp" className="font-semibold text-red-600 hover:underline">
+            <Link to="/signUp" className="font-semibold text-blue-800 hover:underline">
               Sign up here
             </Link>
           </div>

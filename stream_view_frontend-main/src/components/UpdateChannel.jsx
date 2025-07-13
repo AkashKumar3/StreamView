@@ -88,9 +88,8 @@ const UpdateChannel = () => {
           <div className="flex items-center space-x-3 border border-gray-300 p-3 rounded-md focus-within:ring-2 focus-within:ring-blue-500">
             <FaCameraRetro
               size={24}
-              className={`transition-all duration-300 ${
-                formData.channelLogo ? "text-blue-500" : "text-red-500"
-              }`}
+              className={`transition-all duration-300 ${formData.channelLogo ? "text-blue-500" : "text-blue-800"
+                }`}
             />
             <input
               type="url"
@@ -109,9 +108,8 @@ const UpdateChannel = () => {
           <div className="flex items-center space-x-3 border border-gray-300 p-3 rounded-md focus-within:ring-2 focus-within:ring-blue-500">
             <FaEdit
               size={24}
-              className={`transition-all duration-300 ${
-                formData.channelName ? "text-blue-500" : "text-red-500"
-              }`}
+              className={`transition-all duration-300 ${formData.channelName ? "text-blue-500" : "text-blue-800"
+                }`}
             />
             <input
               type="text"
@@ -130,9 +128,8 @@ const UpdateChannel = () => {
           <div className="flex items-center space-x-3 border border-gray-300 p-3 rounded-md focus-within:ring-2 focus-within:ring-blue-500">
             <FaCloudUploadAlt
               size={24}
-              className={`transition-all duration-300 ${
-                formData.channelBanner ? "text-blue-500" : "text-red-500"
-              }`}
+              className={`transition-all duration-300 ${formData.channelBanner ? "text-blue-500" : "text-blue-800"
+                }`}
             />
             <input
               type="url"
@@ -151,9 +148,8 @@ const UpdateChannel = () => {
           <div className="flex items-center space-x-3 border border-gray-300 p-3 rounded-md focus-within:ring-2 focus-within:ring-blue-500">
             <FaEdit
               size={24}
-              className={`transition-all duration-300 ${
-                formData.description ? "text-blue-500" : "text-red-500"
-              }`}
+              className={`transition-all duration-300 ${formData.description ? "text-blue-500" : "text-blue-800"
+                }`}
             />
             <textarea
               id="description"
@@ -171,7 +167,7 @@ const UpdateChannel = () => {
         <div className="text-center">
           <button
             type="submit"
-            className="w-full py-4 text-white bg-red-500 rounded-xl shadow-lg hover:bg-red-600 transition-all duration-300"
+            className="w-full py-4 text-white bg-blue-800 rounded-xl shadow-lg hover:bg-blue-900 transition-all duration-300"
           >
             Update Channel
           </button>

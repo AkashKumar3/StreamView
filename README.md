@@ -1,6 +1,6 @@
-# YouTube Clone
+# Stream View 
 
-This is a full-stack YouTube Clone application built with **React** for the frontend and **Node.js** with **Express** for the backend. The project includes features like user authentication, video upload, and playback functionality.
+This is a full-stack Stream View application built with **React** for the frontend and **Node.js** with **Express** for the backend. The project includes features like user authentication, video upload, and playback functionality.
 
 ---
 

@@ -81,8 +81,8 @@ const UploadVideo = () => {
         {/* Video Icon */}
         <div className="flex flex-col items-center">
           <img
-            className="w-32 h-32 rounded-full shadow-lg border-4 border-red-600 object-cover mb-6 transition duration-500 ease-in-out transform hover:scale-110"
-            src="https://png.pngtree.com/png-vector/20190215/ourmid/pngtree-play-video-icon-graphic-design-template-vector-png-image_530837.jpg"
+            className="w-32 h-32 rounded-full shadow-lg object-cover mb-6 transition duration-500 ease-in-out transform hover:scale-110"
+            src="/images/play_logo.png"
             alt="Video Icon"
           />
         </div>
@@ -100,7 +100,7 @@ const UploadVideo = () => {
             placeholder="Enter Video Title"
           />
           <FaVideo
-            className={`absolute top-4 left-4 ${formData.title ? "text-blue-500" : "text-red-500"} transition-colors duration-300`}
+            className={`absolute top-4 left-4 ${formData.title ? "text-blue-500" : "text-blue-800"} transition-colors duration-300`}
           />
         </div>
 
@@ -117,7 +117,7 @@ const UploadVideo = () => {
             placeholder="Enter Thumbnail URL"
           />
           <FaFileImage
-            className={`absolute top-4 left-4 ${formData.thumbnailUrl ? "text-blue-500" : "text-red-500"} transition-colors duration-300`}
+            className={`absolute top-4 left-4 ${formData.thumbnailUrl ? "text-blue-500" : "text-blue-800"} transition-colors duration-300`}
           />
         </div>
 
@@ -134,7 +134,7 @@ const UploadVideo = () => {
             placeholder="Enter Video URL"
           />
           <FaLink
-            className={`absolute top-4 left-4 ${formData.videoUrl ? "text-blue-500" : "text-red-500"} transition-colors duration-300`}
+            className={`absolute top-4 left-4 ${formData.videoUrl ? "text-blue-500" : "text-blue-800"} transition-colors duration-300`}
           />
         </div>
 
@@ -177,7 +177,7 @@ const UploadVideo = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full py-3 text-white bg-red-600 hover:bg-red-700 focus:ring-2 focus:ring-red-500 rounded-lg transition-all duration-300"
+          className="w-full py-3 text-white bg-blue-800 hover:bg-blue-900 focus:ring-2 focus:ring-blue-800 rounded-lg transition-all duration-300"
         >
           Upload Video
         </button>

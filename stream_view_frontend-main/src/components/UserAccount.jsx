@@ -26,7 +26,7 @@ const UserAccount = () => {
       <div className="flex flex-col sm:flex-row gap-6 p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 ease-in-out border border-gray-200 hover:bg-gray-50">
         <img
           src={userDetails?.avatar}
-          className="w-40 h-40 rounded-full object-cover border-4 border-red-500 shadow-lg transition-transform transform hover:scale-105"
+          className="w-40 h-40 rounded-full object-cover border-4 border-blue-800 shadow-lg transition-transform transform hover:scale-105"
           alt="User Avatar"
         />
         <div className="flex flex-col justify-center">
@@ -53,13 +53,13 @@ const UserAccount = () => {
           <div className="flex items-center gap-6 p-4 bg-gray-50 rounded-lg shadow-md border border-gray-200 hover:scale-105 transform transition duration-300 ease-in-out">
             <img
               src={userChannel?.channelLogo}
-              className="w-32 h-32 rounded-full object-cover border-4 border-red-500 shadow-md transition-transform transform hover:scale-105"
+              className="w-32 h-32 rounded-full object-cover border-4 border-blue-800 shadow-md transition-transform transform hover:scale-105"
               alt="Channel Logo"
             />
             <div className="flex flex-col justify-center">
               <h3 className="text-2xl font-semibold text-gray-800">{userChannel?.channelName}</h3>
               <div className="flex items-center space-x-2 mt-2">
-                <span className="bg-red-500 text-white text-sm px-3 py-1 rounded-full shadow-md">
+                <span className="bg-blue-800 text-white text-sm px-3 py-1 rounded-full shadow-md">
                   Active
                 </span>
               </div>
@@ -72,7 +72,7 @@ const UserAccount = () => {
             </p>
             <button
               onClick={() => navigate("/createChannel")}
-              className="mt-4 px-6 py-3 text-white bg-red-500 hover:bg-red-600 rounded-full flex items-center space-x-2 transition duration-300 ease-in-out"
+              className="mt-4 px-6 py-3 text-white bg-blue-800 hover:bg-blue-900 rounded-full flex items-center space-x-2 transition duration-300 ease-in-out"
             >
               <FiPlusCircle className="w-5 h-5" />
               <span className="font-semibold">Create Channel</span>

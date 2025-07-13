@@ -66,8 +66,7 @@ const SignUp = () => {
       <div className="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
         {/* YouTube Logo and Title */}
         <div className="flex items-center justify-center space-x-3 mb-8">
-          <SiYoutube size={40} className="text-red-600" />
-          <h2 className="text-3xl font-semibold text-gray-800">YouTube</h2>
+          <img src="/images/stream_view_logo.png" alt="logo" />
         </div>
 
         <form onSubmit={handleFormSubmit} className="space-y-6">
@@ -80,7 +79,7 @@ const SignUp = () => {
             </label>
             <input
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-800"
               id="userName"
               type="text"
               value={formData.userName}
@@ -98,7 +97,7 @@ const SignUp = () => {
             </label>
             <input
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-800"
               id="email"
               type="email"
               value={formData.email}
@@ -116,7 +115,7 @@ const SignUp = () => {
             </label>
             <input
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-800"
               id="password"
               type="password"
               value={formData.password}
@@ -135,7 +134,7 @@ const SignUp = () => {
             </label>
             <input
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-800"
               id="avatar"
               type="text"
               value={formData.avatar}
@@ -146,14 +145,14 @@ const SignUp = () => {
 
           <button
             type="submit"
-            className="w-full bg-red-600 text-white py-3 rounded-md hover:bg-red-700 transition-colors"
+            className="w-full bg-blue-800 text-white py-3 rounded-md hover:bg-blue-900 transition-colors"
           >
             Sign Up
           </button>
 
           <div className="text-center text-sm text-gray-600 mt-4">
             Already have an account?{" "}
-            <Link to="/login" className="font-semibold text-red-600 hover:underline">
+            <Link to="/login" className="font-semibold text-blue-800 hover:underline">
               Login here
             </Link>
           </div>

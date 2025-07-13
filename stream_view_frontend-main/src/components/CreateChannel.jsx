@@ -82,8 +82,8 @@ const CreateChannel = () => {
         {/* Channel Logo */}
         <div className="flex flex-col items-center">
           <img
-            className="w-32 h-32 rounded-full border-4 border-red-500 object-cover mb-4"
-            src={formData?.channelLogo || "https://us.123rf.com/450wm/asmati/asmati1610/asmati161000408/63831624-user-avatar-illustration-anonymous-sign-white-icon-on-red-circle.jpg?ver=6"}
+            className="w-32 h-32 rounded-full border-4 border-blue-800 object-cover mb-4"
+            src={formData?.channelLogo || "/images/profile_logo.png"}
             alt="Channel Logo"
           />
           <input
@@ -93,7 +93,7 @@ const CreateChannel = () => {
             onChange={handleChange}
             required
             placeholder="Enter Logo URL"
-            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800"
           />
         </div>
 
@@ -110,7 +110,7 @@ const CreateChannel = () => {
             onChange={handleChange}
             required
             placeholder="Enter Channel Name"
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800"
           />
         </div>
 
@@ -127,7 +127,7 @@ const CreateChannel = () => {
             onChange={handleChange}
             required
             placeholder="Enter Banner URL"
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800"
           />
         </div>
 
@@ -144,14 +144,14 @@ const CreateChannel = () => {
             required
             placeholder="Enter Channel Description"
             rows="4"
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800"
           />
         </div>
 
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full py-3 text-white bg-red-500 hover:bg-red-600 focus:ring-2 focus:ring-red-500 rounded-md transition duration-300 ease-in-out"
+          className="w-full py-3 text-white bg-blue-800 hover:bg-blue-900 focus:ring-2 focus:ring-blue-800 rounded-md transition duration-300 ease-in-out"
         >
           Create Channel
         </button>

@@ -215,7 +215,7 @@ const VideoView = () => {
             </Link>
             <button
               onClick={handleSubscribe}
-              className="px-6 py-2 text-sm bg-red-500 text-white rounded-full hover:bg-red-600 transition-all"
+              className="px-6 py-2 text-sm bg-blue-800 text-white rounded-full hover:bg-blue-900 transition-all"
             >
               Subscribe
             </button>
@@ -232,7 +232,7 @@ const VideoView = () => {
               onClick={handleDisLike}
               className="px-6 py-2 bg-gray-200 rounded-full flex items-center gap-2 hover:bg-gray-300 transition-all"
             >
-              <BiDislike size={20}  />
+              <BiDislike size={20} />
               {videoData?.dislikes?.length}
             </button>
             <button className="px-6 py-2 bg-gray-200 rounded-full hover:bg-gray-300 transition-all">
@@ -269,16 +269,16 @@ const VideoView = () => {
         <div className="comments mt-8">
           {comments?.length > 0
             ? comments?.map((item) => (
-                <Comment
-                  key={item._id}
-                  triggerCommentFetch={triggerCommentFetch}
-                  video={video}
-                  id={item._id}
-                  createdAt={item.createdAt}
-                  owner={item.owner}
-                  description={item.description}
-                />
-              ))
+              <Comment
+                key={item._id}
+                triggerCommentFetch={triggerCommentFetch}
+                video={video}
+                id={item._id}
+                createdAt={item.createdAt}
+                owner={item.owner}
+                description={item.description}
+              />
+            ))
             : "No comments available."}
         </div>
       </div>

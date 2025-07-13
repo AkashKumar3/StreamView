@@ -69,14 +69,14 @@ export default function ({ sideBarToggle, setSideBarToggle }) {
         />
         <Link to={"/"}>
           <img
-            src="/images/ytLogoSmall.webp"
+            src="/images/small_logo.png"
             alt="Youtube"
             className="block xs:hidden w-8 xs:w-24"
           />
         </Link>
         <Link to={"/"}>
           <img
-            src="/images/youtubeLogo.png"
+            src="/images/stream_view_logo.png"
             alt="Youtube"
             className="hidden xs:block w-12 xs:w-24"
           />
@@ -116,8 +116,8 @@ export default function ({ sideBarToggle, setSideBarToggle }) {
                 src={user?.avatar}
                 onClick={() => setToggle(!toggle)}
                 onError={(e) =>
-                  (e.target.src =
-                    "https://us.123rf.com/450wm/asmati/asmati1610/asmati161000408/63831624-user-avatar-illustration-anonymous-sign-white-icon-on-red-circle.jpg?ver=6")
+                (e.target.src =
+                  "/images/profile_logo.png")
                 }
                 className="w-8 h-8 cursor-pointer rounded-full border"
                 alt="userAvatar"
