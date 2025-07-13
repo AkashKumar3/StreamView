@@ -5,7 +5,7 @@ This is a full-stack Stream View application built with **React** for the fronte
 ---
 
 # Live Link
-https://youtube-clone-frontend-i4h6.onrender.com
+https://stream-view-6qv2.onrender.com
 
 ## Features
 
@@ -39,9 +39,9 @@ https://youtube-clone-frontend-i4h6.onrender.com
 ## Installation and Setup
 
 ### 1. Backend Setup
-1. Navigate to the `youtube_clone_backend` directory.
+1. Navigate to the `backend` directory.
    ```bash
-   cd youtube_clone_backend
+   cd backend
    ```
 
 2. Install backend dependencies.
@@ -66,9 +66,9 @@ https://youtube-clone-frontend-i4h6.onrender.com
 ---
 
 ### 2. Frontend Setup
-1. Navigate to the `youtube_clone_frontend` directory.
+1. Navigate to the `frontend` directory.
    ```bash
-   cd youtube_clone_frontend
+   cd frontend
    ```
 
 2. Install frontend dependencies.
@@ -89,7 +89,7 @@ https://youtube-clone-frontend-i4h6.onrender.com
 
 ### Backend
 ```
-youtube_clone_backend/
+backend/
 ├── models/          # Mongoose models for database schemas
 ├── routes/          # Express routes for APIs
 ├── controllers/     # Business logic for APIs
@@ -101,7 +101,7 @@ youtube_clone_backend/
 
 ### Frontend
 ```
-youtube_clone_frontend/
+frontend/
 ├── src/
 │   ├── components/  # Reusable components
 │   ├── pages/       # React pages for routing
