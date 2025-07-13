@@ -16,7 +16,7 @@ const SearchVideos = () => {
       setLoading(true);
       try {
         const { data } = await axios.get(
-          `https://youtube-clone-backend-ghq6.onrender.com/api/video/search/${params.searchItem}`
+          `https://streamview-zrby.onrender.com/api/video/search/${params.searchItem}`
         );
         if (data) {
           setSearchvideos(data.videos);

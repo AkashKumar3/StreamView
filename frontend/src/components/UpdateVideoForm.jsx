@@ -24,7 +24,7 @@ const UpdateVideoForm = () => {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(
-        `https://youtube-clone-backend-ghq6.onrender.com/api/video/${params.id}`
+        `https://streamview-zrby.onrender.com/api/video/${params.id}`
       );
 
       if (data.video.uploader !== user._id) {
@@ -55,7 +55,7 @@ const UpdateVideoForm = () => {
 
     try {
       let result = await axios.put(
-        `https://youtube-clone-backend-ghq6.onrender.com/api/video/updateVideo/${params.id}/${userChannel?._id}/${user?._id}`,
+        `https://streamview-zrby.onrender.com/api/video/updateVideo/${params.id}/${userChannel?._id}/${user?._id}`,
         formData,
         {
           headers: {

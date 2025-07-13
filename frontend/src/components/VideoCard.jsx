@@ -13,12 +13,12 @@ const VideoCard = ({
   createdAt,
 }) => {
   const [channelData, setChannelData] = useState([]);
-  
+
   useEffect(() => {
     // Fetch channel data
     const fetchData = async () => {
       const { data } = await axios.get(
-        `https://youtube-clone-backend-ghq6.onrender.com/api/channel/${channelId}`
+        `https://streamview-zrby.onrender.com/api/channel/${channelId}`
       );
       if (data) {
         setChannelData(data.channel);

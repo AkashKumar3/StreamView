@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { setToken, setUserState } from "../utils/userSlice";
-import { SiYoutube } from "react-icons/si"; // YouTube logo from react-icons
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -31,7 +30,7 @@ const Login = () => {
     try {
       const { email, password } = formData;
       let { data } = await axios.post(
-        "https://youtube-clone-backend-ghq6.onrender.com/api/users/login",
+        "https://streamview-zrby.onrender.com/api/users/login",
         {
           email,
           password,
@@ -58,7 +57,7 @@ const Login = () => {
   return (
     <div className="bg-gray-100 min-h-screen flex justify-center items-center py-10">
       <div className="w-full max-w-lg bg-white p-8 rounded-lg shadow-xl">
-        {/* YouTube Logo and Title */}
+        {/* streamview Logo and Title */}
         <div className="flex items-center justify-center space-x-3 mb-8">
           <img src="/images/stream_view_logo.png" alt="logo" />
         </div>

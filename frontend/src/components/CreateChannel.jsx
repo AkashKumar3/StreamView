@@ -33,7 +33,7 @@ const CreateChannel = () => {
     let channelData = { ...formData, owner: user?._id };
     try {
       let result = await axios.post(
-        "https://youtube-clone-backend-ghq6.onrender.com/api/channel/createChannel",
+        "https://streamview-zrby.onrender.com/api/channel/createChannel",
         channelData,
         {
           headers: {
@@ -54,7 +54,7 @@ const CreateChannel = () => {
   const fetchCurrentUser = async () => {
     try {
       let { data } = await axios.get(
-        `https://youtube-clone-backend-ghq6.onrender.com/api/users/${user?._id}`
+        `https://streamview-zrby.onrender.com/api/users/${user?._id}`
       );
       if (data) {
         dispatch(setUserState(data?.user));

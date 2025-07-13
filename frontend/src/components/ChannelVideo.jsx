@@ -19,7 +19,7 @@ const ChannelVideo = ({ triggerVideoFetching, item, channelData }) => {
   const handleDelete = async (videoId) => {
     try {
       const result = await axios.delete(
-        `https://youtube-clone-backend-ghq6.onrender.com/api/video/deleteVideo/${videoId}/${channelData?._id}/${user?._id}`,
+        `https://streamview-zrby.onrender.com/api/video/deleteVideo/${videoId}/${channelData?._id}/${user?._id}`,
         {
           headers: {
             Authorization: `JWT ${token}`,
@@ -67,9 +67,8 @@ const ChannelVideo = ({ triggerVideoFetching, item, channelData }) => {
                 className="cursor-pointer"
               />
               <ul
-                className={`${
-                  op ? "block" : "hidden"
-                } absolute bg-gray-200 rounded-md shadow-md top-7 right-2`}
+                className={`${op ? "block" : "hidden"
+                  } absolute bg-gray-200 rounded-md shadow-md top-7 right-2`}
               >
                 <li
                   onClick={() => {

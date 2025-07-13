@@ -4,9 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-// You can import the YouTube logo here or use the SVG inline
-import { SiYoutube } from "react-icons/si";  // For YouTube logo icon
-
 const SignUp = () => {
   const [formData, setFormData] = useState({
     userName: "",
@@ -38,7 +35,7 @@ const SignUp = () => {
     try {
       const { userName, email, password, avatar } = formData;
       let { data } = await axios.post(
-        "https://youtube-clone-backend-ghq6.onrender.com/api/users/signup",
+        "https://streamview-zrby.onrender.com/api/users/signup",
         {
           userName,
           email,
@@ -64,7 +61,7 @@ const SignUp = () => {
   return (
     <div className="bg-gray-100 min-h-screen flex justify-center items-center py-10">
       <div className="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
-        {/* YouTube Logo and Title */}
+        {/* streamview Logo and Title */}
         <div className="flex items-center justify-center space-x-3 mb-8">
           <img src="/images/stream_view_logo.png" alt="logo" />
         </div>

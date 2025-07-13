@@ -1,93 +1,110 @@
-import { HiHome, HiTrendingUp, HiCollection, HiClock, HiMusicNote, HiPlay, HiBell, HiCog, HiQuestionMarkCircle, HiFilm, HiVideoCamera, HiBookOpen, HiThumbUp, HiShoppingBag, HiPuzzle, HiNewspaper, HiOutlineGlobe, HiOutlineBookOpen, HiMicrophone } from 'react-icons/hi';
+import {
+  HiHome, HiTrendingUp, HiCollection, HiClock, HiMusicNote, HiPlay,
+  HiBell, HiCog, HiQuestionMarkCircle, HiFilm, HiVideoCamera, HiBookOpen,
+  HiThumbUp, HiShoppingBag, HiPuzzle, HiNewspaper, HiOutlineGlobe,
+  HiOutlineBookOpen, HiMicrophone
+} from 'react-icons/hi';
 
 import { Link } from "react-router-dom";
 
 const Sidebar = ({ sideBarToggle }) => {
   const menuItems = [
-    { icon: HiHome, text: 'Home', path: '/' },
-    { icon: HiFilm, text: 'Shorts' },
-    { icon: HiCollection, text: 'Subscriptions' },
+    { icon: HiHome, text: 'Dashboard', path: '/' },
+    { icon: HiFilm, text: 'Stream Shorts' },
+    { icon: HiCollection, text: 'My Subscriptions' },
   ];
 
   const staticItems = [
-    { icon: HiClock, text: 'History' },
-    { icon: HiPlay, text: 'Playlists' },
-    { icon: HiVideoCamera, text: 'Your videos' },
-    { icon: HiBookOpen, text: 'Your courses' },
-    { icon: HiClock, text: 'Watch later' },
-    { icon: HiThumbUp, text: 'Liked Videos' },
+    { icon: HiClock, text: 'Recently Watched' },
+    { icon: HiPlay, text: 'Saved Playlists' },
+    { icon: HiVideoCamera, text: 'My Uploads' },
+    { icon: HiBookOpen, text: 'My Courses' },
+    { icon: HiClock, text: 'Watch Later' },
+    { icon: HiThumbUp, text: 'Liked Streams' },
   ];
 
   const additionalItems = [
-    { icon: HiTrendingUp, text: 'Trending' },
-    { icon: HiShoppingBag, text: 'Shopping' },
-    { icon: HiMusicNote, text: 'Music' },
-    { icon: HiFilm, text: 'Movies' },
-    { icon: HiPuzzle, text: 'Gaming' },
-    { icon: HiNewspaper, text: 'News' },
-    { icon: HiOutlineGlobe, text: 'Sports' },
-    { icon: HiOutlineBookOpen, text: 'Courses' },
-    { icon: HiCollection, text: 'Fashion & Beauty' },
-    { icon: HiMicrophone, text: 'Podcast' },
-    
+    { icon: HiTrendingUp, text: 'Trending Now' },
+    { icon: HiShoppingBag, text: 'Marketplace' },
+    { icon: HiMusicNote, text: 'Music Room' },
+    { icon: HiFilm, text: 'Movies & Shows' },
+    { icon: HiPuzzle, text: 'Games' },
+    { icon: HiNewspaper, text: 'News Feed' },
+    { icon: HiOutlineGlobe, text: 'Live Sports' },
+    { icon: HiOutlineBookOpen, text: 'Learning' },
+    { icon: HiCollection, text: 'Style & Beauty' },
+    { icon: HiMicrophone, text: 'Podcasts' },
     { icon: HiBell, text: 'Notifications' },
-    { icon: HiCog, text: 'Settings' },
-    { icon: HiQuestionMarkCircle, text: 'Help' },
+    { icon: HiCog, text: 'Preferences' },
+    { icon: HiQuestionMarkCircle, text: 'Support' },
   ];
 
   return (
     <div
-      className={`h-[100%] hidden overflow-y-scroll py-4 w-72 pl-6 pr-4 ${
-        sideBarToggle ? "hidden" : "sm:flex"
-      } flex-col gap-2`}
+      className={`h-full hidden overflow-y-auto w-72 px-4 py-6 bg-gradient-to-b from-gray-900 to-gray-800 text-white shadow-xl ${sideBarToggle ? "hidden" : "sm:flex"
+        } flex-col gap-6`}
     >
- {menuItems.map((item) => (
+      {/* Brand */}
+      <div className="text-2xl font-bold mb-4 tracking-tight pl-2">StreamView</div>
+
+      {/* Primary Navigation */}
+      <div className="space-y-2">
+        {menuItems.map((item) =>
           item.path ? (
             <Link
               key={item.text}
               to={item.path}
-              className="flex items-center gap-4 px-4 py-2 rounded-lg hover:bg-gray-100"
+              className="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-gray-700 transition"
             >
-              <item.icon className="w-6 h-6" />
-              <span>{item.text}</span>
+              <item.icon className="w-5 h-5" />
+              <span className="text-sm">{item.text}</span>
             </Link>
           ) : (
             <div
               key={item.text}
-              className="flex items-center gap-4 px-4 py-2 rounded-lg hover:bg-gray-100"
+              className="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-gray-700 transition"
             >
-              <item.icon className="w-6 h-6" />
-              <span>{item.text}</span>
+              <item.icon className="w-5 h-5" />
+              <span className="text-sm">{item.text}</span>
             </div>
           )
-        ))}
-              {/* you section */}
-              <span className='ml-4'>You</span>
-        {staticItems.map((item) => (
-          <div
-            key={item.text}
-            className="flex items-center gap-4 px-4 py-2 rounded-lg hover:bg-gray-100"
-          >
-            <item.icon className="w-6 h-6" />
-            <span>{item.text}</span>
-          </div>
-        ))}
+        )}
+      </div>
 
-        {/* Divider */}
-        <hr className="my-2 border-gray-300" />
-        
-        <span className='ml-4'>Explore</span>
-        {/* explore section */}
-        {additionalItems.map((item) => (
-          <div
-            key={item.text}
-            className="flex items-center gap-4 px-4 py-2 rounded-lg hover:bg-gray-100"
-          >
-            <item.icon className="w-6 h-6" />
-            <span>{item.text}</span>
-          </div>
-        ))}
-  
+      {/* You Section */}
+      <div>
+        <h4 className="text-xs uppercase text-gray-400 tracking-wide pl-2 mb-2">Your Library</h4>
+        <div className="space-y-2">
+          {staticItems.map((item) => (
+            <div
+              key={item.text}
+              className="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-gray-700 transition"
+            >
+              <item.icon className="w-5 h-5" />
+              <span className="text-sm">{item.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Divider */}
+      <hr className="border-gray-600 my-4" />
+
+      {/* Explore Section */}
+      <div>
+        <h4 className="text-xs uppercase text-gray-400 tracking-wide pl-2 mb-2">Discover</h4>
+        <div className="space-y-2">
+          {additionalItems.map((item) => (
+            <div
+              key={item.text}
+              className="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-gray-700 transition"
+            >
+              <item.icon className="w-5 h-5" />
+              <span className="text-sm">{item.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

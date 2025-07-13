@@ -28,7 +28,7 @@ const VideoView = () => {
     try {
       let uId = user._id;
       const { data } = await axios.put(
-        `https://youtube-clone-backend-ghq6.onrender.com/api/video/likeVideo/${video}`,
+        `https://streamview-zrby.onrender.com/api/video/likeVideo/${video}`,
         { uId },
         {
           headers: {
@@ -57,7 +57,7 @@ const VideoView = () => {
     try {
       let uId = user._id;
       const { data } = await axios.put(
-        `https://youtube-clone-backend-ghq6.onrender.com/api/video/disLikeVideo/${video}`,
+        `https://streamview-zrby.onrender.com/api/video/disLikeVideo/${video}`,
         { uId },
         {
           headers: {
@@ -82,7 +82,7 @@ const VideoView = () => {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(
-        `https://youtube-clone-backend-ghq6.onrender.com/api/video/${video}`
+        `https://streamview-zrby.onrender.com/api/video/${video}`
       );
       if (data) {
         setVideoData(data.video);
@@ -105,7 +105,7 @@ const VideoView = () => {
   const fetchChannelVideos = async (id) => {
     try {
       const { data } = await axios.get(
-        `https://youtube-clone-backend-ghq6.onrender.com/api/video/channelVideos/${id}`
+        `https://streamview-zrby.onrender.com/api/video/channelVideos/${id}`
       );
       if (data) {
         setChannelVideos(data.videos);
@@ -117,7 +117,7 @@ const VideoView = () => {
 
   const fetchChannelData = async (cId) => {
     const { data } = await axios.get(
-      `https://youtube-clone-backend-ghq6.onrender.com/api/channel/${cId}`
+      `https://streamview-zrby.onrender.com/api/channel/${cId}`
     );
     if (data) {
       setChannelData(data.channel);
@@ -126,7 +126,7 @@ const VideoView = () => {
 
   const fetchVideoComments = async () => {
     const { data } = await axios.get(
-      `https://youtube-clone-backend-ghq6.onrender.com/api/comment/videoComments/${video}`
+      `https://streamview-zrby.onrender.com/api/comment/videoComments/${video}`
     );
     if (data) {
       setComments(data.comments);
@@ -151,7 +151,7 @@ const VideoView = () => {
     };
     try {
       const data = await axios.post(
-        "https://youtube-clone-backend-ghq6.onrender.com/api/comment/addComment",
+        "https://streamview-zrby.onrender.com/api/comment/addComment",
         commentData
       );
       if (data) {
@@ -171,7 +171,7 @@ const VideoView = () => {
     }
     try {
       const { data } = await axios.put(
-        `https://youtube-clone-backend-ghq6.onrender.com/api/channel/subscribeChannel/${channelData?._id}/${user?._id}`,
+        `https://streamview-zrby.onrender.com/api/channel/subscribeChannel/${channelData?._id}/${user?._id}`,
         {},
         {
           headers: {
@@ -194,7 +194,7 @@ const VideoView = () => {
         <iframe
           className="w-full h-[50vh] sm:h-[60vh] md:h-[28rem] rounded-md"
           src={`https://www.youtube.com/embed/${videoUrl}?autoplay=1&rel=0`}
-          title="YouTube video player"
+          title="streamview video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           rel="0"

@@ -1,5 +1,5 @@
 # Logs
-youtube_clone_backend-main/.env
+backend/.env
 
 logs
 *.log

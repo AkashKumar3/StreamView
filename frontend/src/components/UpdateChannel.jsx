@@ -33,7 +33,7 @@ const UpdateChannel = () => {
 
   const fetchChannelData = async () => {
     const { data } = await axios.get(
-      `https://youtube-clone-backend-ghq6.onrender.com/api/channel/${params.id}`
+      `https://streamview-zrby.onrender.com/api/channel/${params.id}`
     );
     if (data) {
       setFormData({
@@ -55,7 +55,7 @@ const UpdateChannel = () => {
 
     try {
       const result = await axios.put(
-        `https://youtube-clone-backend-ghq6.onrender.com/api/channel/updateChannel/${params.id}/${user._id}`,
+        `https://streamview-zrby.onrender.com/api/channel/updateChannel/${params.id}/${user._id}`,
         formData,
         {
           headers: {

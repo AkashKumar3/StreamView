@@ -26,7 +26,7 @@ export default function ({ sideBarToggle, setSideBarToggle }) {
       const fetchUserChannel = async () => {
         try {
           let { data } = await axios.get(
-            `https://youtube-clone-backend-ghq6.onrender.com/api/channel/${user?.channel[0]}`
+            `https://streamview-zrby.onrender.com/api/channel/${user?.channel[0]}`
           );
           dispatch(setUserChannelDetails(data.channel));
         } catch (error) {
@@ -70,14 +70,14 @@ export default function ({ sideBarToggle, setSideBarToggle }) {
         <Link to={"/"}>
           <img
             src="/images/small_logo.png"
-            alt="Youtube"
+            alt="streamview"
             className="block xs:hidden w-8 xs:w-24"
           />
         </Link>
         <Link to={"/"}>
           <img
             src="/images/stream_view_logo.png"
-            alt="Youtube"
+            alt="streamview"
             className="hidden xs:block w-12 xs:w-24"
           />
         </Link>

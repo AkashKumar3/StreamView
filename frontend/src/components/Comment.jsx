@@ -29,7 +29,7 @@ const Comment = ({
     const fetchOwner = async () => {
       try {
         const { data } = await axios.get(
-          `https://youtube-clone-backend-ghq6.onrender.com/api/users/${owner}`
+          `https://streamview-zrby.onrender.com/api/users/${owner}`
         );
 
         if (data) {
@@ -47,7 +47,7 @@ const Comment = ({
   const handleDelete = async () => {
     try {
       const result = await axios.delete(
-        `https://youtube-clone-backend-ghq6.onrender.com/api/comment/deleteComment/${id}/${video}/${user?._id}`
+        `https://streamview-zrby.onrender.com/api/comment/deleteComment/${id}/${video}/${user?._id}`
       );
       if (result) {
         toast.success("Comment deleted successfully");
@@ -64,7 +64,7 @@ const Comment = ({
   const handleUpdate = async () => {
     try {
       const result = await axios.put(
-        `https://youtube-clone-backend-ghq6.onrender.com/api/comment/updateComment/${id}/${video}/${user?._id}`,
+        `https://streamview-zrby.onrender.com/api/comment/updateComment/${id}/${video}/${user?._id}`,
         {
           description: editedDescription,
         }
@@ -127,9 +127,8 @@ const Comment = ({
             onClick={() => setOp(!op)}
           />
           <ul
-            className={`${
-              op ? "block" : "hidden"
-            } absolute bg-white rounded-md shadow-md top-0 right-5`}
+            className={`${op ? "block" : "hidden"
+              } absolute bg-white rounded-md shadow-md top-0 right-5`}
           >
             {isEditing ? (
               <li
